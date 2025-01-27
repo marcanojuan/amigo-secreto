@@ -1,4 +1,4 @@
-# Challenge Amigo secreto
+# Challenge - Amigo secreto
 
-## En Desarrollo
+## En desarrollo
 
