@@ -2,4 +2,4 @@
 
 ## G8-ONE | Alura-Latam
 
-_In development_
+_In development ..._
