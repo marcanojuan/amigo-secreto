@@ -1,4 +1,5 @@
 # Challenge - Amigo secreto
 
-## En desarrollo
+## G8-ONE | Alura-Latam
 
+_In development_
