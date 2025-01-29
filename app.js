@@ -1,6 +1,6 @@
 const inputElement = document.getElementById('amigo');
-
 const listElement = document.getElementById('listaAmigos');
+const resultElement = document.getElementById('resultado');
 
 // Validar que solo haya letras y espacios.
 const inputIsValid = (input) => /^[a-zA-Z]+(?:\s[a-zA-Z]+)*$/.test(input);
@@ -34,7 +34,7 @@ function updateListFriends() {
         listElement.removeChild(listElement.firstChild);
     }
 
-    // Usa un fragmento para evitar repintados innecesarios.
+    // Usa un fragmento para evitar Repaint y Reflow innecesarios.
     const fragment = document.createDocumentFragment();
     
     // Iterar sobre arreglo para crear elementos.
@@ -45,5 +45,17 @@ function updateListFriends() {
     });
 
     listElement.appendChild(fragment);
+    return;
+}
+
+function sortearAmigo() {
+    if (amigos.length <= 1) {
+        alertShow('No hay suficientes amigos para sortear.');
+        return;
+    }
+
+    const amigoSorteado = amigos[Math.floor(Math.random() * amigos.length)];
+
+    resultElement.textContent = `El amigo sorteado es: ${amigoSorteado}`;
     return;
 }
