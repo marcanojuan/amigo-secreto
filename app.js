@@ -12,20 +12,21 @@ function agregarAmigo() {
     const friendName = inputElement.value.trim();
 
     if (!inputIsValid(friendName)) {
-        alertShow('Por favor, ingrese un nombre válido.');
+        dialogShow('Por favor, ingrese un nombre válido.');
         return;
     }
 
     amigos.push(friendName);
-
+    dialogShow('¡Tu amigo ha sido agregado a la lista del sorteo!');
+ 
     inputElement.value = '';
 
     updateListFriends();
     return;
 }
 
-function alertShow(message) {
-    alert(message);
+function dialogShow(message) {
+    resultElement.textContent = message;
     return;
 }
 
@@ -49,13 +50,24 @@ function updateListFriends() {
 }
 
 function sortearAmigo() {
-    if (amigos.length <= 1) {
-        alertShow('No hay suficientes amigos para sortear.');
+    const numberFriends = amigos.length;
+
+    if (numberFriends <= 1) {
+        dialogShow('No hay suficientes amigos para sortear.');
         return;
     }
 
-    const amigoSorteado = amigos[Math.floor(Math.random() * amigos.length)];
+    const index = Math.floor(Math.random() * numberFriends);
+    const randomFriend = amigos[index];
+    
+    amigos.splice(index, 1);
+    updateListFriends();
 
-    resultElement.textContent = `El amigo sorteado es: ${amigoSorteado}`;
+    dialogShow(`El amigo sorteado es: ${randomFriend}.`);
     return;
 }
+
+inputElement.addEventListener('click', () => {
+    if (resultElement.textContent) dialogShow('');
+    return;
+});
