@@ -1,10 +1,8 @@
-// Capturar el elemento de campo de entrada.
 const inputElement = document.getElementById('amigo');
 
-// Obtener el elemento de lista.
 const listElement = document.getElementById('listaAmigos');
 
-// Validar con Regex la entrada donde solo se aceptan letras y espacios.
+// Validar que solo haya letras y espacios.
 const inputIsValid = (input) => /^[a-zA-Z]+(?:\s[a-zA-Z]+)*$/.test(input);
 
 let amigos = [];
@@ -18,10 +16,8 @@ function agregarAmigo() {
         return;
     }
 
-    // Actualizar arreglo de amigos.
     amigos.push(friendName);
 
-    // Limpiar campo de entrada.
     inputElement.value = '';
 
     updateListFriends();
@@ -34,23 +30,20 @@ function alertShow(message) {
 }
 
 function updateListFriends() {
-    // Limpiar lista existente en forma segura.
     while (listElement.firstChild) {
         listElement.removeChild(listElement.firstChild);
     }
 
-    // Crear fragmento para mejorar rendimiento.
+    // Usa un fragmento para evitar repintados innecesarios.
     const fragment = document.createDocumentFragment();
     
     // Iterar sobre arreglo para crear elementos.
     amigos.forEach((friend) => {
         const elementLi = document.createElement('li');
         elementLi.textContent = friend;
-        // Agregar elemento al fragmento.
         fragment.appendChild(elementLi);
     });
 
-    // Agregar fragmento a la lista en el DOM en una sola operación.
     listElement.appendChild(fragment);
     return;
 }
