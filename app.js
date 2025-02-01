@@ -1,7 +1,7 @@
-/*  INVESTIGAR, programación ... :
-
-    - Modular basada en funciones y closures.
-    - Con Clases o Módulos ES6
+/*
+Juego del Amigo Secreto
+Challenge - Amigo secreto
+G8-ONE | Alura-Latam
 */
 
 const inputName = document.getElementById('amigo');
@@ -12,12 +12,26 @@ const btnDraw = document.querySelector('.button-draw');
 
 let friends = [];
 
+function initEventListeners() {
+    inputName.addEventListener('click', inputClick);
+    btnAdd.addEventListener('click', addFriend);
+    btnDraw.addEventListener('click', drawFriend);
+}
+
+function inputClick() {
+    cleanElement(ulResult);
+}
+
 function addFriend() {
-    // Capturar el dato ingresado y eliminar los espacios innecesarios.
     const friendName = inputName.value.trim();
 
     if (!inputIsValid(friendName)) {
         dialogShow('Por favor, ingrese un nombre válido.');
+        return;
+    }
+
+    if (friends.includes(friendName)) {
+        dialogShow('¡El amigo ya está en la lista!');
         return;
     }
 
@@ -27,9 +41,23 @@ function addFriend() {
     updateListFriends();
 }
 
-// Validar string con solo letras y espacios.
+function drawFriend() {
+    if (friends.length <= 1) {
+        dialogShow('No hay suficientes amigos para sortear.');
+        return;
+    }
+
+    const randomIndex = Math.floor(Math.random() * friends.length);
+    const selectedFriend = friends.splice(randomIndex, 1)[0];
+    
+    updateListFriends();
+    dialogShow(`El amigo sorteado es: ${selectedFriend}.`);
+}
+
 function inputIsValid(input) {
-    return /^[a-zA-Z]+(?:\s[a-zA-Z]+)*$/.test(input);
+    // Validar entrada con solo letras y espacios.
+    const regex = /^[a-zA-Z]+(?:\s[a-zA-Z]+)*$/;
+    return regex.test(input);
 }
 
 function dialogShow(message) {
@@ -37,24 +65,18 @@ function dialogShow(message) {
 }
 
 function cleanElement(element) {
-    const tagName = element.tagName.toLowerCase();
-    
-    if (tagName === 'input') {
+    if (element instanceof HTMLInputElement) {
         element.value = '';
-    } else if (tagName === 'ul') {
+    } else if (element instanceof HTMLUListElement) {
         element.textContent = '';
     }
 }
 
 function updateListFriends() {
-    while (ulNames.firstChild) {
-        ulNames.removeChild(ulNames.firstChild);
-    }
-    
-    // Evita repaint y reflow mediante el uso de un fragment.
+    ulNames.innerHTML = '';
+
     const fragment = document.createDocumentFragment();
-    
-    // Iterar sobre el arreglo para generar los elementos li.
+
     friends.forEach((friend) => {
         const li = document.createElement('li');
         li.textContent = friend;
@@ -64,22 +86,4 @@ function updateListFriends() {
     ulNames.appendChild(fragment);
 }
 
-function drawFriend() {
-    const numberFriends = friends.length;
-
-    if (numberFriends <= 1) {
-        dialogShow('No hay suficientes amigos para sortear.');
-        return;
-    }
-
-    const index = Math.floor(Math.random() * numberFriends);
-    const randomFriend = friends[index];
-    
-    friends.splice(index, 1);
-    updateListFriends();
-    dialogShow(`El amigo sorteado es: ${randomFriend}.`);
-}
-
-inputName.addEventListener('click', () => cleanElement(ulResult));
-btnAdd.addEventListener('click', addFriend);
-btnDraw.addEventListener('click', drawFriend);
+initEventListeners();
