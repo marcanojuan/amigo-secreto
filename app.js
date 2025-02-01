@@ -1,6 +1,6 @@
 /*
-Challenge - Juego del Amigo secreto
-G8-ONE | Alura-Latam
+Juego del Amigo Secreto
+Challenge | G8-ONE | Alura-Latam
 */
 
 const inputName = document.getElementById('amigo');

@@ -1,41 +1,43 @@
 # Juego del Amigo Secreto
 
-Este es un sencillo juego interactivo de "Amigo Secreto" desarrollado con JavaScript, que permite a los usuarios agregar nombres a una lista y realizar un sorteo aleatorio.
+Sencillo juego interactivo de "Amigo Secreto", desarrollado con JavaScript, permite al usuario añadir nombres a una lista de participantes y realizar un sorteo aleatorio de un amigo.
 
-## Características
+## Característícas
 
-- Agregar nombres a la lista de participantes.
-- Validación de nombres para evitar duplicados o entradas inválidas.
-- Sorteo aleatorio de un amigo secreto.
-- Mensajes de retroalimentación para mejorar la experiencia del usuario.
+- Permite añadir nombres a una lista, facilitando la inclusión de todos los jugadores.
+- Verifica que los nombres ingresados sean válidos y evita duplicados, asegurando la integridad del sorteo.
+- Realiza sorteos aleatorios para asignar un amigo secreto a cada participante, garantizando la imparcialidad del juego.
+- Proporciona mensajes claros y oportunos durante el proceso, mejorando la experiencia del usuario y facilitando la comprensión de cada etapa.
 
-## Tecnologías utilizadas
+## Tecnologías empleadas
 
 - HTML
 - CSS
 - JavaScript
+- Git
+- GitHub
 
 ## Instalación y ejecución
 
-1. Clona este repositorio:
+1. Clonar este repositorio:
+   
    ```bash
    git clone https://github.com/marcanojuan/amigo-secreto.git
    ```
-2. Abre el archivo `index.html` en tu navegador.
+
+2. Abrir el archivo `index.html` en el navegador de su preferencia.
 
 ## Uso
 
-1. Ingresa el nombre de un participante en el campo de texto.
-2. Haz clic en el botón "Añadir" para agregarlo a la lista.
-3. Cuando haya al menos dos participantes, haz clic en "Sortear amigo" para elegir un amigo secreto.
+1. Ingrese el nombre de un participante en el campo de texto.
+2. Hacer click en el botón "Añadir" para agregarlo a la lista.
+3. Cuando haya al menos dos participantes, hacer click en "Sortear amigo" para elegir al amigo.
 
 ## Código Principal
 
-El código principal maneja la lógica del juego:
+Las funciones `addFriend` y `drawFriend` contienen la lógica principal del juego:
 
 ```javascript
-let friends = [];
-
 function addFriend() {
     const friendName = inputName.value.trim();
 
@@ -56,32 +58,27 @@ function addFriend() {
 }
 ```
 
+```javascript
+function drawFriend() {
+    if (friends.length <= 1) {
+        dialogShow('No hay suficientes amigos para sortear.');
+        return;
+    }
+
+    const randomIndex = Math.floor(Math.random() * friends.length);
+    const selectedFriend = friends.splice(randomIndex, 1)[0];
+    
+    updateListFriends();
+    dialogShow(`El amigo sorteado es: ${selectedFriend}.`);
+}
+```
+
 ## Mejoras futuras
 
-- Implementar una interfaz gráfica más atractiva con CSS.
-- Permitir exportar los resultados del sorteo.
-- Agregar la funcionalidad para reiniciar el juego sin recargar la página.
-
-## Contribuciones
-
-¡Las contribuciones son bienvenidas! Si deseas mejorar el proyecto, por favor sigue estos pasos:
-
-1. Haz un fork del repositorio.
-2. Crea una nueva rama (`feature-nueva-funcionalidad`).
-3. Realiza tus cambios y haz un commit (`git commit -m 'Agrega nueva funcionalidad'`).
-4. Sube los cambios a tu fork (`git push origin feature-nueva-funcionalidad`).
-5. Abre un Pull Request.
-
-## Licencia
-
-Este proyecto está bajo la Licencia MIT.
+Implementar la funcionalidad de reiniciar el juego sin necesidad de recargar la página.
 
 ---
 
-¡Diviértete con el sorteo del Amigo Secreto!
-
-El README es esencial para comunicar cómo utilizar y entender un proyecto. Este archivo es el punto de referencia inicial para cualquier persona interesada en entender tu proyecto. Un buen README incluye información sobre la instalación, dependencias, cómo ejecutar el proyecto, y posibles problemas o soluciones.
-
-Como reto adicional, crea un README para tu proyecto de "Amigo Secreto" detallando sus funcionalidades, incluyendo capturas de pantalla o videos que muestren cómo agregar nombres y realizar el sorteo. Esta práctica mejorará la documentación, y hará que tu proyecto sea más accesible y profesional para la comunidad.
+¡Que la diversión te acompañe en el sorteo del Amigo Secreto!
 
 [Cómo escribir un README increíble en tu Github](https://www.aluracursos.com/blog/como-escribir-un-readme-increible-en-tu-github)
