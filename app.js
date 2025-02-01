@@ -1,6 +1,5 @@
 /*
-Juego del Amigo Secreto
-Challenge - Amigo secreto
+Challenge - Juego del Amigo secreto
 G8-ONE | Alura-Latam
 */
 
@@ -73,9 +72,9 @@ function cleanElement(element) {
 }
 
 function updateListFriends() {
-    ulNames.innerHTML = '';
-
     const fragment = document.createDocumentFragment();
+
+    ulNames.innerHTML = '';
 
     friends.forEach((friend) => {
         const li = document.createElement('li');

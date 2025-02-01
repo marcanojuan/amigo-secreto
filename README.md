@@ -1,4 +1,4 @@
-# Challenge - Amigo secreto
+# Challenge - Juego del Amigo Secreto
 
 ## G8-ONE | Alura-Latam
 
