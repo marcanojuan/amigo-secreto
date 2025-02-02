@@ -1,8 +1,8 @@
 # Juego del Amigo Secreto
 
+Sencillo juego interactivo, desarrollado con JavaScript, permite al usuario añadir nombres a una lista de participantes y realizar un sorteo aleatorio de un amigo secreto.
 
-
-Sencillo juego interactivo de "Amigo Secreto", desarrollado con JavaScript, permite al usuario añadir nombres a una lista de participantes y realizar un sorteo aleatorio de un amigo.
+<div><img src="assets/screenshot.gif" alt="Juego del Amigo Secreto" width="683" height="384"></div>
 
 ## Característícas
 
@@ -82,6 +82,4 @@ function drawFriend() {
 
 ---
 
-¡Que la diversión te acompañe en el sorteo del Amigo Secreto!
-
-[Cómo escribir un README increíble en tu Github](https://www.aluracursos.com/blog/como-escribir-un-readme-increible-en-tu-github)
+> _¡Que la diversión te acompañe en el sorteo del Amigo Secreto!_
