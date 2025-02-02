@@ -3,7 +3,8 @@
 Sencillo juego interactivo, desarrollado con JavaScript, permite al usuario añadir nombres a una lista de participantes y realizar un sorteo aleatorio de un amigo secreto.
 
 <div align="center">
-<img src="assets/screenshot.gif" alt="Juego del Amigo Secreto" width="683" height="384"></div>
+    <img src="assets/screenshot.gif" alt="Juego del Amigo Secreto" width="683" height="384" style="border-radius: 10px;">
+</div>
 
 ## Característícas
 
