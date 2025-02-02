@@ -77,8 +77,9 @@ function drawFriend() {
 
 ## Mejoras futuras
 
+- Aprovechar los atributos del elemento `input` en el código HTML para realizar la validación del dato ingresado por el jugador.
 - Implementar la funcionalidad de reiniciar el juego, sin necesidad de recargar la página.
-- Desarrollar un código organizado, modular, reutilizable y de fácil mantenimiento mediante la aplicación de conceptos como encapsulación con módulos basados en closures, funciones autoejecutables (IIFE), clases y módulos ES6.
+- Desarrollar un código de fácil mantenimiento, organizado, modular, y reutilizable, mediante la aplicación de conceptos como encapsulación con módulos basados en closures, funciones autoejecutables (IIFE), clases y módulos ES6.
 
 ---
 
