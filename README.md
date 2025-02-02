@@ -1,5 +1,7 @@
 # Juego del Amigo Secreto
 
+
+
 Sencillo juego interactivo de "Amigo Secreto", desarrollado con JavaScript, permite al usuario añadir nombres a una lista de participantes y realizar un sorteo aleatorio de un amigo.
 
 ## Característícas
@@ -75,7 +77,8 @@ function drawFriend() {
 
 ## Mejoras futuras
 
-Implementar la funcionalidad de reiniciar el juego sin necesidad de recargar la página.
+- Implementar la funcionalidad de reiniciar el juego, sin necesidad de recargar la página.
+- Desarrollar un código organizado, modular, reutilizable y de fácil mantenimiento mediante la aplicación de conceptos como encapsulación con módulos basados en closures, funciones autoejecutables (IIFE), clases y módulos ES6.
 
 ---
 
